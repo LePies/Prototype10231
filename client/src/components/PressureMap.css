@@ -1,0 +1,226 @@
+.pressure-map {
+  padding: 2rem 0;
+  min-height: 100vh;
+  background: #f8fafc;
+  padding-top: var(--page-top-padding); /* Use CSS custom property for navbar spacing */
+}
+
+/* Page Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.page-header p {
+  font-size: 1.125rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Pressure Grid Container */
+.pressure-grid-container {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+/* Pressure Grid */
+.pressure-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: #1e293b;
+  padding: 2px;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.pressure-row {
+  display: flex;
+  gap: 2px;
+}
+
+.pressure-cell {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pressure-cell:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.pressure-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Pressure Legend */
+.pressure-legend {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+  min-width: 250px;
+}
+
+.pressure-legend h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.legend-color {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+.legend-item span {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Pressure Statistics */
+.pressure-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+}
+
+.stat-card p {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Loading Container */
+.loading-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #64748b;
+}
+
+.loading-container .spinner {
+  margin: 0 auto 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pressure-grid-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .pressure-cell {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .pressure-value {
+    font-size: 0.75rem;
+  }
+  
+  .pressure-legend {
+    min-width: 200px;
+  }
+  
+  .pressure-stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .page-header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pressure-cell {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .pressure-value {
+    font-size: 0.625rem;
+  }
+  
+  .page-header h1 {
+    font-size: 1.75rem;
+  }
+}
+
+
