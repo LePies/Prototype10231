@@ -84,7 +84,7 @@
 }
 
 .status-icon.in-progress {
-  color: #3b82f6;
+  color: var(--primary-color);
 }
 
 .status-icon.processing {
@@ -199,31 +199,53 @@
 
 /* Progress Bar */
 .progress-bar {
-  margin: 1.5rem 0;
-}
-
-.progress-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #64748b;
-}
-
-.progress-track {
   width: 100%;
   height: 8px;
   background: #e2e8f0;
   border-radius: 4px;
   overflow: hidden;
+  margin: 0.5rem 0;
 }
 
 .progress-fill {
   height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
   border-radius: 4px;
   transition: width 0.3s ease;
+}
+
+/* Action Buttons */
+.action-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.edit-btn {
+  background: var(--primary-lighter);
+  color: var(--primary-color);
+}
+
+.edit-btn:hover {
+  background: var(--primary-light);
+  color: white;
+}
+
+.view-btn {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.view-btn:hover {
+  background: #e2e8f0;
+  color: #1e293b;
 }
 
 /* Order Actions */

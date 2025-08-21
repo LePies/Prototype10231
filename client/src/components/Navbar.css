@@ -30,12 +30,12 @@
 }
 
 .navbar-brand:hover {
-  color: #3b82f6;
+  color: var(--primary-color);
 }
 
 .brand-icon {
   font-size: 2rem;
-  color: #3b82f6;
+  color: var(--primary-color);
 }
 
 .navbar-menu {
@@ -55,13 +55,13 @@
 }
 
 .nav-link:hover {
-  color: #3b82f6;
-  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary-color);
+  background: var(--primary-lighter);
 }
 
 .nav-link.active {
-  color: #3b82f6;
-  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary-color);
+  background: var(--primary-lighter);
 }
 
 .navbar-toggle {
@@ -74,7 +74,7 @@
 }
 
 .navbar-toggle:hover {
-  background: rgba(59, 130, 246, 0.1);
+  background: var(--primary-lighter);
 }
 
 .navbar-toggle svg {

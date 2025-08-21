@@ -10,6 +10,8 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from the React app build directory
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Configure multer for file uploads
@@ -116,7 +118,7 @@ const saddleDesigns = [
     name: "Gravel Adventure",
     description: "Versatile saddle designed for gravel riding and mixed terrain",
     price: 229.99,
-    image: "/images/gravel-adventure.jpg",
+    image: "/gravel-adventure.jpg",
     category: "Gravel"
   }
 ];
@@ -214,6 +216,11 @@ app.put('/api/orders/:id/status', (req, res) => {
   res.json({ message: 'Order updated successfully', order });
 });
 
+// Health check endpoint for Render
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
 // Serve React app for all other routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
@@ -237,6 +244,7 @@ if (!fs.existsSync('uploads')) {
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
   console.log(`Visit http://localhost:${PORT} to view the application`);
 });
 

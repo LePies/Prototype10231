@@ -4,7 +4,7 @@
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
   color: white;
   padding: 4rem 0;
   min-height: 80vh;
@@ -66,6 +66,43 @@
   font-weight: 500;
 }
 
+/* Hero Actions */
+.hero-actions .btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero-actions .btn-primary {
+  background: white;
+  color: var(--primary-color);
+}
+
+.hero-actions .btn-primary:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hero-actions .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-actions .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
 /* Features Section */
 .features {
   padding: 5rem 0;
@@ -97,9 +134,10 @@
   gap: 2rem;
 }
 
+/* Feature Cards */
 .feature-card {
   background: white;
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 16px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -109,18 +147,25 @@
 
 .feature-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 .feature-icon {
-  font-size: 3rem;
-  color: #3b82f6;
-  margin-bottom: 1.5rem;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-lighter), var(--primary-lightest));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--primary-color);
+  font-size: 2rem;
 }
 
 .feature-card h3 {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #1e293b;
   margin-bottom: 1rem;
 }
@@ -128,6 +173,22 @@
 .feature-card p {
   color: #64748b;
   line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.feature-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.feature-link:hover {
+  color: var(--primary-dark);
+  transform: translateX(4px);
 }
 
 /* Stats Section */

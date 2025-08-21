@@ -66,7 +66,7 @@
   content: '';
   width: 4px;
   height: 24px;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
   border-radius: 2px;
   margin-right: 0.5rem;
 }
@@ -110,16 +110,16 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
 
 .saddle-option:hover {
-  border-color: #3b82f6;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.02), rgba(139, 92, 246, 0.02));
+  border-color: var(--primary-color);
+  background: var(--primary-lightest);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 122, 87, 0.15);
 }
 
 .saddle-option:hover::before {
@@ -127,9 +127,9 @@
 }
 
 .saddle-option.selected {
-  border-color: #3b82f6;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.08));
-  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
+  border-color: var(--primary-color);
+  background: var(--primary-lighter);
+  box-shadow: 0 15px 35px rgba(0, 122, 87, 0.2);
 }
 
 .saddle-option.selected::before {
@@ -186,10 +186,10 @@
 }
 
 .saddle-option-content .price {
-  color: #3b82f6;
+  color: var(--primary-color);
   font-weight: 700;
   font-size: 1.25rem;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -198,14 +198,14 @@
 .selection-indicator {
   width: 28px;
   height: 28px;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 122, 87, 0.3);
   flex-shrink: 0;
 }
 
@@ -251,12 +251,13 @@
   color: #1e293b;
 }
 
+/* Form Inputs */
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: var(--primary-color);
   background: white;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 4px var(--primary-lighter);
 }
 
 .form-input::placeholder,
@@ -282,14 +283,14 @@
 }
 
 .file-upload:hover {
-  border-color: #3b82f6;
-  background: rgba(59, 130, 246, 0.02);
+  border-color: var(--primary-color);
+  background: var(--primary-lightest);
   transform: translateY(-2px);
 }
 
 .file-upload.drag-active {
-  border-color: #3b82f6;
-  background: rgba(59, 130, 246, 0.05);
+  border-color: var(--primary-color);
+  background: var(--primary-lighter);
   transform: scale(1.02);
 }
 
@@ -301,7 +302,7 @@
 }
 
 .file-upload:hover .upload-prompt svg {
-  color: #3b82f6;
+  color: var(--primary-color);
 }
 
 .upload-prompt p {
@@ -335,7 +336,7 @@
 
 .file-info svg {
   font-size: 1.75rem;
-  color: #3b82f6;
+  color: var(--primary-color);
 }
 
 .remove-file {
@@ -361,7 +362,7 @@
 /* Order Summary */
 .order-summary {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border: 2px solid rgba(59, 130, 246, 0.2);
+  border: 2px solid var(--primary-lighter);
 }
 
 .summary-card {
@@ -397,9 +398,9 @@
 }
 
 .summary-value.price {
-  color: #3b82f6;
+  color: var(--primary-color);
   font-size: 1.375rem;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -450,6 +451,7 @@
   box-shadow: none;
 }
 
+/* Submit Button */
 .form-actions .btn.submitting {
   background: linear-gradient(135deg, #6b7280, #4b5563);
   cursor: not-allowed;
@@ -457,7 +459,7 @@
 
 .form-actions .btn.submitting:hover {
   transform: none;
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 122, 87, 0.3);
 }
 
 .form-validation-message {
@@ -527,14 +529,14 @@
 }
 
 .file-upload-compact:hover {
-  border-color: #3b82f6;
-  background: rgba(59, 130, 246, 0.02);
+  border-color: var(--primary-color);
+  background: var(--primary-lightest);
   transform: translateY(-2px);
 }
 
 .file-upload-compact.drag-active {
-  border-color: #3b82f6;
-  background: rgba(59, 130, 246, 0.05);
+  border-color: var(--primary-color);
+  background: var(--primary-lighter);
   transform: scale(1.02);
 }
 
@@ -553,7 +555,7 @@
 }
 
 .file-upload-compact:hover .upload-prompt-compact svg {
-  color: #3b82f6;
+  color: var(--primary-color);
 }
 
 .upload-prompt-compact span {
@@ -568,15 +570,15 @@
   justify-content: center;
   gap: 1rem;
   color: #1e293b;
-  background: rgba(59, 130, 246, 0.05);
+  background: var(--primary-lightest);
   padding: 1rem;
   border-radius: 8px;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid var(--primary-lighter);
 }
 
 .file-info-compact svg {
   font-size: 1.5rem;
-  color: #3b82f6;
+  color: var(--primary-color);
 }
 
 /* Pressure Analysis Preview */
@@ -727,16 +729,17 @@
   overflow: hidden;
 }
 
+/* Button Styles */
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
   color: white;
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 122, 87, 0.3);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
   transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 12px 35px rgba(0, 122, 87, 0.4);
 }
 
 .btn-primary:active {
@@ -860,5 +863,14 @@
     padding: 1rem 1.5rem;
     font-size: 1rem;
   }
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
