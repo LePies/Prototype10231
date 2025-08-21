@@ -42,6 +42,44 @@ Make sure your repository has this structure:
 
 6. **Click "Create Web Service"**
 
+## Troubleshooting Build Failures
+
+If the build fails, try these alternative build commands in order:
+
+### **Option 1: Simple Build (Recommended)**
+```
+npm install && cd client && npm install && npm run build
+```
+
+### **Option 2: Step-by-Step Build**
+```
+npm install
+cd client && npm install
+cd .. && npm run build
+```
+
+### **Option 3: Manual Build Commands**
+```
+npm install
+cd client
+npm install
+npm run build
+cd ..
+```
+
+### **Common Build Issues:**
+
+1. **Node Version**: Ensure you're using Node.js 16+ on Render
+2. **Dependencies**: Make sure all packages are in package.json
+3. **Build Scripts**: Verify build scripts exist in both package.json files
+4. **Memory**: Free tier has memory limits - try simpler build commands
+
+### **Check Build Logs:**
+- Go to your Render service dashboard
+- Click on "Logs" tab
+- Look for specific error messages
+- Common errors: "ENOENT", "npm ERR!", "Build failed"
+
 ## How It Works
 
 Your application is now set up as a **full-stack service** where:
