@@ -3,6 +3,7 @@ const multer = require('multer');
 const cors = require('cors');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -11,8 +12,11 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from the React app build directory
-app.use(express.static(path.join(__dirname, 'client/build')));
+// Serve static files from the React app build directory (only if it exists)
+const clientBuildPath = path.join(__dirname, 'client/build');
+if (fs.existsSync(clientBuildPath)) {
+  app.use(express.static(clientBuildPath));
+}
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
@@ -221,9 +225,20 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
-// Serve React app for all other routes
+// Serve React app for all other routes (only if build files exist)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  const indexPath = path.join(__dirname, 'client/build/index.html');
+  
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    // If React build doesn't exist yet, return a simple message
+    res.status(200).json({ 
+      message: 'MySaddle API is running! React frontend is building...',
+      status: 'API Ready',
+      timestamp: new Date().toISOString()
+    });
+  }
 });
 
 // Error handling middleware
@@ -237,7 +252,6 @@ app.use((error, req, res, next) => {
 });
 
 // Create uploads directory if it doesn't exist
-const fs = require('fs');
 if (!fs.existsSync('uploads')) {
   fs.mkdirSync('uploads');
 }
@@ -245,6 +259,8 @@ if (!fs.existsSync('uploads')) {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`Client build path: ${clientBuildPath}`);
+  console.log(`Client build exists: ${fs.existsSync(clientBuildPath)}`);
   console.log(`Visit http://localhost:${PORT} to view the application`);
 });
 
